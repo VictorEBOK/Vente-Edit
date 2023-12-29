@@ -1,0 +1,89 @@
+﻿
+@model VenteEditViewModel
+
+
+@if (Model.Id <= 0)
+{
+    <h2>Création d'une page de vente</h2>
+}
+
+else
+
+{
+   <h2>Modification d'une page de vente @Model.Id</h2>
+
+}
+
+
+
+<form method="post">
+    @* @ @Html.ValidationSummary() *@
+    <div class="form-group">
+        <label class="form-label">N° d'article</label>
+        <input type="text" class="form-control" asp-for="SampleNumber">
+        <span class=*text-danger* asp-validation-for="SampleNumber"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Date de la vente</label>
+        <input type="datetime-local" class="form-control" asp-for="SamplingDate">
+        <span class=*text-danger* asp-validation-for="SamplingDate"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Nom du Vendeur</label>
+        <select class="form-select" aps-for="NomDuVendeur">
+            <option value="" selected>Veuillez sélectionner le Vendeur (se)</option>
+            <option value="1">Victor</option>
+            <option value="2">Mariane</option>
+            <option value="3">Clovis</option>
+            <option value="4">Jules</option>
+        </select>
+        <span class=*text-danger* asp-validation-for="NomDuVendeur"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Categorie</label>
+        <select class="form-select" asp-for="Categorie">
+            <option value="" selected>Veuillez sélectionner le type</option>
+            <option value="1">Jeans</option>
+            <option value="2">Robe</option>
+            <option value="3">Veste</option>
+            <option value="4">Pantalon simple</option>
+        </select>
+        <span class=*text-danger* asp-validation-for="Categorie"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Model</label>
+        <select class="form-select" asp-for="Model">
+            <option value="" selected>Veuillez sélectionner le Model</option>
+            <option value="1">Cour</option>
+            <option value="2">Long</option>
+            <option value="3">Ensemble</option>
+            <option value="4">Longue Manche</option>
+        </select>
+        <span class=*text-danger* asp-validation-for="Model"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Prix</label>
+        <select class="form-select" asp-for="Prix">
+            <option value="" selected>Veuillez sélectionner le Prix qui convient</option>
+            <option value="1">10 Euro</option>
+            <option value="2">20 Euro</option>
+            <option value="3">30 Euro</option>
+            <option value="4">40 Euro</option>
+            <option value="5">50 Euro</option>
+        </select>
+        <span class=*text-danger* asp-validation-for="Prix"></span>
+    </div>
+
+    <div class="form-group">
+        <label class="form-label">Commentaire</label>
+        <textarea class="form-control" rows="4" asp-for="Commentaire"></textarea>
+        <span class=*text-danger* asp-validation-for="Commentaire"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Envoyer</button>
+</form>
